@@ -11,13 +11,13 @@ describe('AppComponent', () => {
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(app.title).toBeTruthy();
   });
 
   it(`should have the 'enset-app' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('enset-app');
+    expect(app.currentAction).toEqual('enset-app');
   });
 
   it('should render title', () => {
