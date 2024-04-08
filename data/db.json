@@ -10,7 +10,7 @@
       "id": "2",
       "name": "Printer",
       "price": 3200,
-      "checked": false
+      "checked": true
     },
     {
       "id": "3",
@@ -19,15 +19,9 @@
       "checked": true
     },
     {
-      "id": "4",
-      "name": "Smart Phone",
-      "price": 15600,
-      "checked": true
-    },
-    {
-      "id": "5",
-      "name": "Smart Phone",
-      "price": 15600,
+      "id": "863b",
+      "name": "hello",
+      "price": "1520",
       "checked": true
     }
   ]

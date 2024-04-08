@@ -1,6 +1,13 @@
 <div class="p-3">
   <div class="card">
     <div class="card-body">
+      <div class="card-body">
+     {{keyword}}
+        <input type="text" [(ngModel)]="keyword">
+        <button  (click)="searchProducts()" class="btn btn-outline-success">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
       <table class="table">
         <thead>
         <tr>
@@ -14,6 +21,11 @@
           <td>
             <button  (click)="handleCheckProduct(product)" class="btn btn-outline-success">
               <i [class]="product.checked?'bi bi-check':'bi bi-circle'"></i>
+            </button>
+          </td>
+          <td>
+            <button  (click)="handleDelete(product)" class="btn btn-outline-danger">
+              <i class="bi bi-trash" ></i>
             </button>
           </td>
         </tr>
