@@ -10,7 +10,7 @@
       "id": "2",
       "name": "Printer",
       "price": 3200,
-      "checked": true
+      "checked": false
     },
     {
       "id": "3",
@@ -20,7 +20,7 @@
     },
     {
       "id": "863b",
-      "name": "hello",
+      "name": "helliwa",
       "price": "1520",
       "checked": true
     },
@@ -43,28 +43,10 @@
       "checked": true
     },
     {
-      "id": "7",
-      "name": "hello",
-      "price": "1520",
-      "checked": true
-    },
-    {
-      "id": "8",
-      "name": "hello",
-      "price": "1520",
-      "checked": true
-    },
-    {
-      "id": "9",
-      "name": "hello",
-      "price": "1520",
-      "checked": true
-    },
-    {
-      "id": "10",
-      "name": "hello",
-      "price": "1520",
-      "checked": true
+      "name": "nabila",
+      "price": "15000",
+      "checked": true,
+      "id": "6A9epuw"
     }
   ]
 }
