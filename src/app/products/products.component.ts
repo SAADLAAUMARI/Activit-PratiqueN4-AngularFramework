@@ -5,6 +5,7 @@ import {ProductService} from "../services/product.service";
 import {Product} from "../model/product.model";
 import {Observable} from "rxjs";
 import {FormsModule} from "@angular/forms";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -16,7 +17,11 @@ export class ProductsComponent implements OnInit{
   public products : Array<Product>=[];
 
   public keyword: string="";
-  constructor(private productService:ProductService) {
+  totalPages:number=0;
+  pageSize:number=3;
+  currentPage:number=1;
+  constructor(private productService:ProductService,
+              private router:Router) {
 
   }
   ngOnInit() {
@@ -25,9 +30,16 @@ export class ProductsComponent implements OnInit{
 
 getProducts(){
 
-  this.productService.getProducts()
+  this.productService.getProducts(this.keyword,this.currentPage,this.pageSize)
     .subscribe({
-      next : data => this.products=data,
+      next : (resp) =>{
+          this.products=resp.body as Product[];
+          let totalProducts:number=parseInt(resp.headers.get('x-total-count')!)
+          this.totalPages=Math.floor(totalProducts/ this.pageSize);
+          if(totalProducts% this.pageSize!=0){
+              this.totalPages=this.totalPages+1;
+          }
+          } ,
       error : err => {
         console.log(err);
       }
@@ -56,14 +68,23 @@ getProducts(){
     );
   }
 
-
+/*
   searchProducts() {
-
-      this.productService.searchProducts(this.keyword).subscribe({
+       this.currentPage=1;
+       this.totalPages=0;
+      this.productService.searchProducts(this.keyword, this.currentPage,this.pageSize).subscribe({
         next: value => {
           this.products = value; // Remplacer les produits par les résultats de la recherche
         }
       });
     }
+*/
+    handleGotoPage(page: number) {
+        this.currentPage=page;
+        this.getProducts();
+    }
 
+  handleEdit(product: Product) {
+      this.router.navigateByUrl(`/editProduct/${product.id}`)
+  }
 }
