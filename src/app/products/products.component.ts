@@ -50,11 +50,8 @@ getProducts(){
               status: "ERROR",
               errorMessage : err
           })
-
       }
     })
-
-
  // this.products$=this.productService.getProducts();
 }
   handleCheckProduct(product: Product) {
